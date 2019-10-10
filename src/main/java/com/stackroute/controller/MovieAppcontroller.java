@@ -5,6 +5,7 @@ import com.stackroute.exceptions.GeneralException;
 import com.stackroute.exceptions.MovieAlreadyExistsException;
 import com.stackroute.exceptions.MovieNotFoundException;
 import com.stackroute.service.MovieAppService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,8 @@ import java.util.List;
 @RequestMapping(value = "v1/api")
 public class MovieAppcontroller {
 
-
+ //@Qualifier("mainService")
+ //no need of qualifier if primary annontation is used
     MovieAppService movieAppService;
 
     public MovieAppcontroller(MovieAppService movieService) {

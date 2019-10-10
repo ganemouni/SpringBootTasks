@@ -19,5 +19,5 @@ public class MovieAppApplication {
 //	@RequestMapping("hello")
 //	String home(){
 //		return message;
-//	}
+
 }
