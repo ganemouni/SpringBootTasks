@@ -5,6 +5,7 @@ import com.stackroute.movieservice.domain.Movie;
 import com.stackroute.movieservice.exceptions.MovieAlreadyExistsException;
 import com.stackroute.movieservice.exceptions.MovieNotFoundException;
 import com.stackroute.movieservice.service.MovieService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
