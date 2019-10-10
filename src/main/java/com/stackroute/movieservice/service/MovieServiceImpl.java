@@ -52,4 +52,10 @@ public class MovieServiceImpl implements  MovieService {
         movieRepository.save(movie);
         return true;
     }
+
+//    @Override
+//    public Movie getMovieByName(String movieTitle) {
+//        Movie movie=movieRepository.getMovieByName(movieTitle);
+//        return movie;
+//    }
 }

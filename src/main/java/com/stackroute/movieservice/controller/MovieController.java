@@ -92,6 +92,13 @@ public class MovieController {
         return responseEntity;
     }
 
+//    @GetMapping("movie/search")
+//    public ResponseEntity<?> getMovieByName(@RequestBody String movieTitle){
+//        ResponseEntity responseEntity;
+//        Movie movie=movieService.getMovieByName(movieTitle);
+//        responseEntity=new ResponseEntity<Movie>(movie, HttpStatus.FOUND);
+//        return responseEntity;}
+
 
 
 }
