@@ -3,6 +3,7 @@ package com.stackroute.movieservice.controller;
 
 import com.stackroute.movieservice.domain.Movie;
 import com.stackroute.movieservice.exceptions.MovieAlreadyExistsException;
+import com.stackroute.movieservice.exceptions.MovieNotFoundException;
 import com.stackroute.movieservice.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -83,13 +84,17 @@ public class MovieController {
     @GetMapping("movie/search")
     public ResponseEntity<?> getMovieByName(@RequestBody String movieTitle){
         ResponseEntity responseEntity;
-        Movie movie=movieService.getMovieByName(movieTitle);
-        responseEntity=new ResponseEntity<Movie>(movie, HttpStatus.FOUND);
+        try{
+            Movie movie=movieService.getMovieByName(movieTitle);
+            responseEntity=new ResponseEntity<Movie>(movie,HttpStatus.FOUND);
+        }
+        catch (MovieNotFoundException ex){
+            responseEntity=new ResponseEntity<String>(ex.getMessage(),HttpStatus.CONFLICT);
+        }
         return responseEntity;
 
 
     }
-
 
 
 }
