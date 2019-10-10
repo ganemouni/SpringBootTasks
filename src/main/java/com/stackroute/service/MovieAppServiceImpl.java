@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service("mainService")
+@Profile("tempProfile")
 @Primary //use primary if movieapp service has more than one implementation
 public class MovieAppServiceImpl implements MovieAppService, ApplicationListener<ContextRefreshedEvent>, CommandLineRunner {
 
@@ -116,7 +118,7 @@ public class MovieAppServiceImpl implements MovieAppService, ApplicationListener
 
     @Override
     public void run(String... args) throws Exception {
-        movieAppRepository.save(new MovieApp(id,title,genre,language));
+//        movieAppRepository.save(new MovieApp(id,title,genre,language));
         }
 }
 

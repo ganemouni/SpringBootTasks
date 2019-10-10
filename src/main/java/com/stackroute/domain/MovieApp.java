@@ -3,13 +3,13 @@ package com.stackroute.domain;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 
 @Entity(name = "movie")
 @ApiModel
@@ -20,8 +20,18 @@ import javax.persistence.Id;
 public class MovieApp {
 
     @Id
+  //@GeneratedValue(generator = "system-uuid")
+//    @GenericGenerator(name = "system-uuid",strategy = "uuid")
     @ApiModelProperty
+    //@Getter
     String id;
+//    @PrePersist
+//    private void generateCodeIdentifier(){
+//        setId("ff8081816db46343016db4634cfe0000");
+//    }
+
+
+
     @ApiModelProperty
     String title;
     @ApiModelProperty

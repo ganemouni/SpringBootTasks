@@ -7,12 +7,14 @@ import com.stackroute.exceptions.MovieAlreadyExistsException;
 import com.stackroute.exceptions.MovieNotFoundException;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service("dummyService")
+@Profile("tempProfile")
 public class DummyServiceImpl  implements MovieAppService, ApplicationListener<ContextRefreshedEvent>, CommandLineRunner {
     @Override
     public MovieApp saveMovie(MovieApp movie) throws MovieAlreadyExistsException {
