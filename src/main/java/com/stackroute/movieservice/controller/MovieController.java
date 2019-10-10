@@ -78,26 +78,17 @@ public class MovieController {
     }
 
 
+
+
     @GetMapping("movie/search")
-    public ResponseEntity<?> getMovieById(@RequestBody int id){
+    public ResponseEntity<?> getMovieByName(@RequestBody String movieTitle){
         ResponseEntity responseEntity;
-
-        try{
-            Movie movie=movieService.getMovieById(id);
-            responseEntity=new ResponseEntity<Movie>(movie, HttpStatus.FOUND);
-        }
-        catch (Exception ex){
-            responseEntity=new ResponseEntity<String>(ex.getMessage(),HttpStatus.CONFLICT);
-        }
+        Movie movie=movieService.getMovieByName(movieTitle);
+        responseEntity=new ResponseEntity<Movie>(movie, HttpStatus.FOUND);
         return responseEntity;
-    }
 
-//    @GetMapping("movie/search")
-//    public ResponseEntity<?> getMovieByName(@RequestBody String movieTitle){
-//        ResponseEntity responseEntity;
-//        Movie movie=movieService.getMovieByName(movieTitle);
-//        responseEntity=new ResponseEntity<Movie>(movie, HttpStatus.FOUND);
-//        return responseEntity;}
+
+    }
 
 
 

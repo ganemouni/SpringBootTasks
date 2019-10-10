@@ -33,11 +33,6 @@ public class MovieServiceImpl implements  MovieService {
         return movieRepository.findAll();
     }
 
-    @Override
-    public Movie getMovieById(int id) throws NotFoundException {
-        Movie movie=movieRepository.findById(id).orElseThrow(() -> new NotFoundException("No Movie found with Id  " + id));
-        return movie;
-    }
 
     @Override
     public boolean deleteMovie(int id) {
@@ -52,10 +47,9 @@ public class MovieServiceImpl implements  MovieService {
         movieRepository.save(movie);
         return true;
     }
-
-//    @Override
-//    public Movie getMovieByName(String movieTitle) {
-//        Movie movie=movieRepository.getMovieByName(movieTitle);
-//        return movie;
-//    }
+    @Override
+    public Movie getMovieByName(String movieTitle) {
+        Movie movie=movieRepository.getMovieByName(movieTitle);
+        return movie;
+    }
 }

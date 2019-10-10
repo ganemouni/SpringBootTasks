@@ -7,7 +7,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MovieRepository extends JpaRepository<Movie,Integer> {
-//    @Query(value = "select * from MOVIE where movie_title=:Name",nativeQuery = true)
-//    Movie getMovieByName(@Param("Name") String movieTitle);
+public interface MovieRepository extends JpaRepository<Movie, Integer> {
+
+    @Query(value = "select * from MOVIE where movie_title=:Name",nativeQuery = true)
+    Movie getMovieByName(@Param("Name") String movieTitle);
 }
